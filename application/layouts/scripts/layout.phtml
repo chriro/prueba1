@@ -1,0 +1,70 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headLink(); ?>
+        <?php echo $this->headScript(); ?>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]> 
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+    </head>
+    <body>
+         <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">Administrar Datos de los Alumnos</a>
+          <ul class="nav">
+            <li class="active"><a href="/">Inicio</a></li>
+            <li><a href="/alumnos/listar">Listar</a></li>
+            <li><a href="/alumnos/nuevo">Nuevo</a></li>
+          </ul>
+          <?php /*<p class="pull-right">Logged in as <a href="#">username</a></p>*/?>
+          <?php
+          $auth = Zend_Auth::getInstance();
+          if ( $auth->hasIdentity()) :
+          ?>
+              <p class="pull-right">Usuario:<?php echo $auth->getIdentity() ?>
+              <a href="/usuario/logout">Logout</a></p>
+          <?php else: ?>
+              <p class="pull-right"><a href="/usuario/login/">Login</a></p>
+          <?php endif;?>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="sidebar">
+        <div class="well">
+          <h5>Sidebar</h5>
+          <ul>
+            <li><a href="#">Link</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <!-- Main hero unit for a primary marketing message or call to action -->
+        <?php echo $this->layout()->content;?>   
+        <footer>
+          <p>&copy; --------</p>
+        </footer>
+      </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<h2>Alumnos</h2>
+<p><a href="/alumnos/nuevo">Nuevo</a> Alumno</p>
+<table class="table1">
+	<tr>
+		<th>Codigo</th>
+		<th>Nombre</th>
+		<th>Apellidos</th>
+		<th colspan="2">Operacion</th>
+	</tr>
+	<?php
+
+foreach ($this->lista as $key => $datos) {	?>
+<tbody>
+<tr>
+	<td><?php echo $datos['aid']?></td>
+	<td><?php echo $datos['nombre']?></td>
+	<td><?php echo $datos['apellidos']?></td>
+	<td><a href="/alumnos/modificar/aid/<?php echo $datos['aid']?>">Editar</a></td>
+	<td><a href="/alumnos/eliminar/aid/<?php echo $datos['aid']?>">Eliminar</a></td>
+</tr>
+</tbody>
+<?php
+}
+?>
+</table>
